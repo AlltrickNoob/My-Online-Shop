@@ -1,0 +1,473 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background: #1877cc;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Search Bar */
+.search-container1 {
+    width: 50%;
+    margin: 20px auto;
+    position: relative;
+}
+.search-container {
+    width: 50%;
+    margin: 20px auto;
+    position: relative;
+}
+
+#search-box {
+    width: 100%;
+  
+    padding: 12px 40px; /* Extra space for the icon */
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    background: white url('https://cdn-icons-png.flaticon.com/512/622/622669.png') no-repeat 10px center;
+    background-size: 20px;
+}
+
+#search-box:focus {
+    border-color: #0056b3;
+    box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+.search-results {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.search-results div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-results div:hover {
+    background-color: #f0f0f0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-container {
+        width: 80%;
+    }
+
+    .item-list {
+        width: 80%;
+    }
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Product Section */
+/* Scrollable Product Section */
+.scroll-product-section {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    gap: 5px; /* Reduced space between items */
+    padding: 5px;
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+.scroll-product-section::-webkit-scrollbar {
+    height: 6px; /* Thinner scrollbar */
+}
+
+.scroll-product-section::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 3px;
+}
+
+.scroll-product-section::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Product Card - Reduced Size */
+.product-card {
+    flex: 0 0 150px; /* Smaller product width */
+    scroll-snap-align: center;
+    padding: 10px;
+    border-radius: 8px; 
+    text-align: center;
+}
+
+/* Product Images - Adjusted Size */
+.product-card img {
+    width: 100%;
+    max-height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Responsive settings for smaller screens */
+@media (max-width: 768px) {
+    .scroll-product-section {
+        overflow-x: scroll;
+    }
+}
+
+/* Display Section */
+.display {
+    width: 100vw;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Banner Container */
+.display-banner {
+    display: flex;
+    width: 400%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Banner Images */
+.display-banner img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .display {
+        height: 250px;
+    }
+
+    .display-banner img {
+        height: 250px;
+    }
+}
+
+/* General Styling */
+.Varity {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+    
+}
+
+.Varity h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Scrollable Card Container */
+.card-container {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+.card-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.card-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.card-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Individual Card Styling */
+.card {
+    flex: 0 0 250px; /* Fixed width */
+    background: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+    scroll-snap-align: center; /* Ensures smooth snapping */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Image inside Card */
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Card Title */
+.card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) { /* Mobile */
+    .card-container {
+        overflow-x: scroll; /* Enables horizontal scrolling */
+        display: flex;
+    }
+
+    .card {
+        flex: 0 0 80%; /* Larger cards for mobile */
+    }
+}
+
+/* Blue Box Styling */
+.blue-box {
+    padding: 20px;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Centers content */
+}
+/* Carousel Styling */
+.carousel1 {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 15px;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    white-space: nowrap;
+}
+.card1 {
+    min-width: 300px;
+    background: blue;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+}
+.card1 img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.card1 h3 {
+    margin: 10px 0;
+}
+.card1 p {
+    font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+    .carousel1 {
+        flex-direction: row;
+        align-items: center;
+    }
+    .card1 {
+        width: 90%;
+    }
+}
+
+/* Container Setup */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Section Styling */
+.section {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.section h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+/* Product Grid */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+/* Product Card */
+.product {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+.product:hover {
+    transform: scale(1.05);
+}
+
+/* Product Image */
+.product img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Product Text */
+.product p {
+    font-size: 16px;
+    margin-top: 8px;
+}
+.discount {
+    color: green;
+    font-weight: bold;
+}
+
+
+/* Banner Section */
+.banner {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    border-radius: var(--banner-radius);
+    overflow: hidden;
+    text-align: center;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--banner-radius);
+    display: block;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--banner-text-color);
+    font-size: 20px;
+    font-weight: bold;
+    background: var(--banner-overlay-bg);
+    padding: 15px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.shop-now {
+    background: #000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.shop-now:hover {
+    background: #444;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .text-overlay {
+        font-size: 16px;
+        padding: 10px;
+    }
+    .shop-now {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .text-overlay {
+        font-size: 14px;
+        padding: 8px;
+        width: 90%;
+    }
+    .shop-now {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Footer */
+footer {
+    background: #1877cc;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
