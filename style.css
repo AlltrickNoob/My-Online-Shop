@@ -83,6 +83,19 @@ header {
     display: none;
 }
 
+.search-suggestion {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-suggestion:hover {
+  background-color: #f0f0f0;
+}
+
+.no-results {
+  padding: 10px;
+  color: red;
+}
 .search-results div {
     padding: 10px;
     cursor: pointer;
@@ -91,23 +104,6 @@ header {
 .search-results div:hover {
     background-color: #f0f0f0;
 }
- /* filter */
-.filters {
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-#load-more-btn {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
 
 /* Responsive */
 @media (max-width: 768px) {
