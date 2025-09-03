@@ -79,3 +79,44 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// ========== Banner Auto Slide ==========
+let currentIndex = 0;
+
+function slideBanner() {
+    const banner = document.querySelector(".display-banner");
+
+    currentIndex++;
+    if (currentIndex >= banner.children.length) {
+        currentIndex = 0; // Loop back to the first image
+    }
+
+    banner.style.transform = `translateX(-${currentIndex * 100}vw)`;
+}
+
+// Auto-slide every 3 seconds
+setInterval(slideBanner, 3000);
+
+// ========== Owl Carousel ==========
+$(document).ready(function () {
+    $('.carousel1').owlCarousel({
+        margin: 20,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000, // Corrected: was autoplayTimeOut
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: false
+            },
+            600: {
+                items: 2,
+                nav: false
+            },
+            1000: {
+                items: 3,
+                nav: false
+            }
+        }
+    });
+});
