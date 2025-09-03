@@ -1,50 +1,84 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const categoryFilter = document.getElementById("category-filter");
-  const clearFiltersBtn = document.getElementById("clear-filters");
-  const productCards = document.querySelectorAll(".product-card");
 
-  categoryFilter.addEventListener("change", () => {
-    const selected = categoryFilter.value.toLowerCase();
+// ========== Search Function ==========
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
 
-    productCards.forEach(card => {
-      const text = card.textContent.toLowerCase();
+    const data = [
+        'Appliance', 'Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Fig', 'Grape',
+        'Honeydew', 'Indian Fig', 'Jackfruit', 'Kiwi', 'Lemon', 'Mango', 'Nectarine',
+        'Orange', 'Papaya', 'Quince', 'Raspberry', 'Strawberry', 'Tangerine', 'Ugli Fruit',
+        'Vanilla', 'Watermelon', 'Xigua', 'Yellow Passion Fruit', 'Zucchini', 'adobe express'
+    ];
 
-      if (selected === "all" || text.includes(selected)) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        searchResults.innerHTML = '';
+
+        if (query) {
+            const filteredData = data.filter(item => item.toLowerCase().includes(query));
+            filteredData.forEach(item => {
+                const div = document.createElement('div');
+                div.textContent = item;
+                div.addEventListener('click', () => {
+                    searchInput.value = item;
+                    searchResults.innerHTML = '';
+                    searchResults.style.display = 'none';
+                });
+                searchResults.appendChild(div);
+            });
+            searchResults.style.display = 'block';
+        } else {
+            searchResults.style.display = 'none';
+        }
     });
-  });
 
-  clearFiltersBtn.addEventListener("click", () => {
-    categoryFilter.value = "all";
-    productCards.forEach(card => {
-      card.style.display = "block";
+    document.addEventListener('click', (event) => {
+        if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
+            searchResults.style.display = 'none';
+        }
     });
-  });
 });
 
+// ========== Banner Auto Slide ==========
+let currentIndex = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".scroll-product-section .product-card");
-  const loadMoreBtn = document.getElementById("load-more-btn");
-  let visibleCount = 6;
+function slideBanner() {
+    const banner = document.querySelector(".display-banner");
 
-  function showCards() {
-    cards.forEach((card, index) => {
-      card.style.display = index < visibleCount ? "block" : "none";
-    });
-
-    if (visibleCount >= cards.length) {
-      loadMoreBtn.style.display = "none";
+    currentIndex++;
+    if (currentIndex >= banner.children.length) {
+        currentIndex = 0; // Loop back to the first image
     }
-  }
 
-  loadMoreBtn.addEventListener("click", () => {
-    visibleCount += 6;
-    showCards();
-  });
+    banner.style.transform = `translateX(-${currentIndex * 100}vw)`;
+}
 
-  showCards(); // Initial call
+// Auto-slide every 3 seconds
+setInterval(slideBanner, 3000);
+
+// ========== Owl Carousel ==========
+$(document).ready(function () {
+    $('.carousel1').owlCarousel({
+        margin: 20,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000, // Corrected: was autoplayTimeOut
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: false
+            },
+            600: {
+                items: 2,
+                nav: false
+            },
+            1000: {
+                items: 3,
+                nav: false
+            }
+        }
+    })
 });
+
