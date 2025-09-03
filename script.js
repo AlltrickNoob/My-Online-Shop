@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchResults = document.getElementById('search-results');
 
   const data = [
+    'Appliance',
       'Apple',
       'Banana',
       'Cherry',
