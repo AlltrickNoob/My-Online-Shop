@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'Watermelon',
       'Xigua',
       'Yellow Passion Fruit',
-      'Zucchini'
+      'Zucchini',
+      'adobe express'
   ];
 
   searchInput.addEventListener('input', () => {
